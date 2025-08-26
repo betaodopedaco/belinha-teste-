@@ -2491,189 +2491,61 @@
             }
         }
 
-/* ----- APPENDED MOBILE ADJUSTMENTS (DO NOT REMOVE) ----- */
+/* === APPENDED FIXES === */
 
-/* === MOBILE ADJUSTMENTS - HEADER, MENU, BUTTONS, EQUAL CARDS ===
-   Appended by assistant to improve mobile behavior:
-   - show mobile hamburger and mobile menu that contains nav links + CTAs
-   - centralize hero and session content on small screens
-   - normalize button sizes on mobile
-   - ensure cards have equal height on mobile
-*/
+/* === Ajustes solicitados === */
 
-/* Ensure mobile-specific elements are hidden on desktop */
-.mobile-hamburger { display: none; }
-.mobile-action-container { display: none; }
-
-/* Base responsive tweaks (already present in original CSS but reinforce here) */
-@media (max-width: 992px) {
-  .hero-title { font-size: 3.2rem; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .sessao-3 { flex-direction: column; padding: 1.5rem var(--padding-secao); }
-  .lado-video { width:100%; height:45vh; clip-path:none; border-radius:8px; }
-}
-
+/* 1. Remover "Acesso Privilegiado" apenas no mobile */
 @media (max-width: 768px) {
-  /* Header layout: keep logo centered and make room for mobile controls */
-  .header { padding: 0.6rem 0; }
-  .nav-container { align-items: center; gap: 0.5rem; }
+  .nav-actions .cta-button {
+    display: none !important;
+  }
+}
 
-  /* Show hamburger (JS will toggle .nav-links.mobile-open) */
-  .mobile-hamburger {
-    display: inline-flex;
-    align-items: center;
+/* 2. Fade-in global (leve) */
+* {
+  animation: fadeIn 0.6s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Otimização de imagens e fontes */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+.hero-title {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+}
+
+/* Botões adaptáveis */
+.btn, .cta-button {
+  min-width: 160px;
+  padding: 0.8rem 1.2rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* 4. Correção para landscape em celulares */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  body { 
+    padding: 0.5rem; 
+    overflow-x: hidden;
+  }
+  header, .hero, .sessao-3 {
+    padding: 0.5rem 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-buttons { 
+    flex-direction: row; 
+    flex-wrap: wrap;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.03);
-    color: var(--gold);
-    cursor: pointer;
-    flex-shrink: 0;
-    font-size: 1.05rem;
   }
-
-  /* Logo centered */
-  .header .logo { margin: 0 auto; display: inline-flex; }
-
-  /* Keep nav-links hidden by default, but style when opened by JS */
-  .nav-links { display: none; }
-  .nav-links.mobile-open {
-    display: flex !important;
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: rgba(8,8,8,0.98);
-    flex-direction: column;
-    gap: 6px;
-    padding: 16px;
-    z-index: 2000;
-    border-top: 1px solid rgba(255,255,255,0.04);
-    max-height: calc(100vh - 64px);
-    overflow-y: auto;
-  }
-  .nav-links.mobile-open a {
-    display: block;
-    padding: 12px 14px;
-    font-size: 1.05rem;
-    border-radius: 8px;
-    background: transparent;
-    color: rgba(255,255,255,0.92);
-  }
-
-  /* Mobile action container (cloned CTAs will appear here) */
-  .mobile-action-container { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
-  .mobile-action-container .cta-button,
-  .mobile-action-container .btn,
-  .mobile-action-container a.cta {
-    display: block;
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 12px 14px;
-    font-size: 1rem;
-    border-radius: 8px;
-    margin: 0;
-  }
-
-  /* When menu is open, avoid body scroll */
-  body.mobile-menu-open { overflow: hidden; }
-
-  /* HERO / content centralization */
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .hero-text-container {
-    padding: 2rem 1rem;
-    max-width: 92%;
-  }
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    width: 100%;
-  }
-  .hero-buttons .btn,
+  .hero-buttons .btn, 
   .hero-buttons .cta-button {
-    width: 85%;
-    max-width: 320px;
-  }
-
-  /* Sessao 3 centralization */
-  .sessao-3 {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .sessao-3 .lado-conteudo {
-    margin-top: 1.5rem;
-    width: 100%;
-    padding: 1rem;
-  }
-
-  /* Buttons normalization */
-  .btn,
-  .cta-button {
-    min-width: 180px;
-    text-align: center;
-    padding: 0.9rem 1.4rem;
-    font-size: 1rem;
-  }
-  .btn, .cta-button { box-sizing: border-box; }
-
-  /* Cards: grid + equal heights */
-  .valor-cards, .benefits-grid, .valor-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    align-items: stretch;
-  }
-
-  .valor-card, .benefit-card, .card {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    height: 100%;
-    box-sizing: border-box;
-  }
-
-  .valor-card .card-content, .benefit-card .card-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-  }
-
-  /* Ensure CTAs inside cards stick to bottom */
-  .valor-card .card-content > .card-cta,
-  .benefit-card .card-content > .card-cta {
-    margin-top: auto;
-  }
-
-  /* Buttons inside cards full width */
-  .valor-card .card-cta .btn,
-  .benefit-card .card-cta .btn,
-  .valor-card .card-cta .cta-button,
-  .benefit-card .card-cta .cta-button {
-    width: 100%;
-    max-width: none;
+    flex: 1 1 45%;
+    margin: 0.3rem;
   }
 }
-
-/* Small enhancement: ensure consistent font-size and line-height for nav links on mobile */
-.nav-links.mobile-open a { line-height: 1.5; }
-
-/* Minor: ensure ticker doesn't cover content on mobile */
-@media (max-width: 480px) {
-  .ticker-content { animation-duration: 25s; }
-  .ticker-item { margin-right: 28px; padding: 8px 10px; }
-}
-
-/* End of mobile adjustments */
-
