@@ -1,4 +1,4 @@
-  :root {
+:root {
             --black: #000000;
             --dark-gray: #0a0a0a;
             --gold: #d4af37;
@@ -2489,3 +2489,59 @@
                 grid-template-columns: 1fr;
             }
         }
+
+/* === Mobile Fixes for Header, Sections, Buttons === */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .nav-links {
+    display: none;
+  }
+  .header .logo {
+    margin: 0 auto;
+  }
+  .nav-actions {
+    display: none;
+  }
+
+  /* Hero content centralization */
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-text-container {
+    padding: 2rem 1rem;
+  }
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Sessão 3 centralization */
+  .sessao-3 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sessao-3 .lado-conteudo {
+    margin-top: 1.5rem;
+  }
+
+  /* Button sizing */
+  .btn,
+  .cta-button {
+    width: 80%;
+    max-width: 280px;
+  }
+}
+
+.btn,
+.cta-button {
+  min-width: 180px;
+  text-align: center;
+  padding: 0.9rem 1.4rem;
+  font-size: 1rem;
+}
