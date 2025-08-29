@@ -1,4 +1,5 @@
-/* ===== VARIÁVEIS E ESTILOS GLOBAIS ===== */
+/* ===== 
+ARIÁVEIS E ESTILOS GLOBAIS ===== */
         :root {
             --black: #000000;
             --dark-gray: #0a0a0a;
@@ -1391,16 +1392,7 @@
         }
 
         /* ===== ESTILOS DA QUARTA SEÇÃO (VALORES ETERNOS) ===== */
-        .section {
-            min-height: 100vh;
-            width: 100%;
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
+       
         .section::before {
             content: '';
             position: absolute;
@@ -2548,4 +2540,38 @@ img, video {
     flex: 1 1 45%;
     margin: 0.3rem;
   }
+}
+
+
+/* =============================================================
+   FIX: Remover apenas o 5º card da seção de cards
+   - Tenta primeiro escopos prováveis da "Saga Magnológica"
+   - Depois cobre grupos que já existem no seu CSS (ex.: .valor-cards > .valor-card)
+   - Por fim, aplica um fallback seguro para QUALQUER container "...-cards"
+     com itens "...-card". Caso queira restringir só à "Saga Magnológica",
+     mantenha apenas os seletores do topo (.saga-... / #saga-...).
+   ============================================================= */
+
+/* 1) Possíveis contêineres da seção "Saga Magnológica" */
+.saga-magnologica .card:nth-child(5),
+.saga-magnológica .card:nth-child(5),
+#saga-magnologica .card:nth-child(5),
+#saga-magnológica .card:nth-child(5),
+.saga-magnologica [class$="card"]:nth-child(5),
+.saga-magnológica [class$="card"]:nth-child(5),
+#saga-magnologica [class$="card"]:nth-child(5),
+#saga-magnológica [class$="card"]:nth-child(5) {
+    display: none !important;
+}
+
+/* 2) Grupos que já existem no seu CSS */
+.valor-cards > .valor-card:nth-child(5),
+.valor-cards > .valor-card:nth-of-type(5) {
+    display: none !important;
+}
+
+/* 3) Fallback genérico para qualquer lista de cards do tipo "...-cards" > "...-card" */
+[class$="cards"] > [class$="card"]:nth-child(5),
+[class$="cards"] > [class$="card"]:nth-of-type(5) {
+    display: none !important;
 }
