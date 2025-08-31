@@ -917,6 +917,60 @@ ARIÁVEIS E ESTILOS GLOBAIS ===== */
             justify-content: center;
             overflow: hidden;
             font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            /* Efeito Parallax */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* SVG de fundo com parallax */
+        .invest-brasil-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230088ff;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%2300ccaa;stop-opacity:0.05" /></linearGradient></defs><path d="M100,100 Q300,50 500,150 T900,100 L900,900 Q700,950 500,850 T100,900 Z" fill="url(%23grad1)"/><circle cx="200" cy="300" r="50" fill="%230088ff" opacity="0.1"/><circle cx="800" cy="700" r="80" fill="%2300ccaa" opacity="0.08"/><path d="M50,400 Q250,350 450,450 T850,400" stroke="%230088ff" stroke-width="2" opacity="0.15" fill="none"/><path d="M150,600 Q350,550 550,650 T950,600" stroke="%2300ccaa" stroke-width="2" opacity="0.12" fill="none"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: 1;
+            opacity: 0.6;
+            animation: parallaxFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes parallaxFloat {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-20px) translateX(10px) rotate(1deg) scale(1.02); 
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(10px) translateX(-15px) rotate(-1deg) scale(0.98); 
+                opacity: 0.5;
+            }
+            75% { 
+                transform: translateY(-15px) translateX(5px) rotate(0.5deg) scale(1.01); 
+                opacity: 0.8;
+            }
+        }
+
+        /* Efeito de scroll parallax adicional */
+        .invest-brasil-section .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.05) 0%, rgba(0, 204, 170, 0.03) 100%);
+            z-index: 2;
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
         }
 
         .invest-brasil-section .content-wrapper {
@@ -926,20 +980,21 @@ ARIÁVEIS E ESTILOS GLOBAIS ===== */
             margin: 0 auto;
             width: 100%;
             position: relative;
-            z-index: 10;
+            z-index: 20;
         }
 
         .invest-brasil-section .text-content {
             width: 60%;
             padding: 40px;
-            background: rgba(10, 20, 40, 0.85);
+            background: rgba(10, 20, 40, 0.9);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 150, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 150, 255, 0.3);
             position: relative;
             overflow: hidden;
             order: 1;
+            z-index: 25;
         }
 
         .invest-brasil-section .text-content::before {
@@ -959,6 +1014,8 @@ ARIÁVEIS E ESTILOS GLOBAIS ===== */
             justify-content: center;
             padding: 20px;
             order: 2;
+            z-index: 15;
+            position: relative;
         }
 
         .invest-brasil-section .svg-container svg {
@@ -2484,6 +2541,26 @@ ARIÁVEIS E ESTILOS GLOBAIS ===== */
         }
 
 /* === APPENDED FIXES === */
+
+/* === JavaScript para efeito parallax na segunda seção === */
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const investSection = document.querySelector('.invest-brasil-section');
+    const parallaxBg = document.querySelector('.invest-brasil-section::before');
+    
+    if (investSection) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            // Aplica o efeito parallax ao SVG de fundo
+            if (investSection.style) {
+                investSection.style.transform = `translateY(${rate}px)`;
+            }
+        });
+    }
+});
+</script>
 
 /* === Ajustes solicitados === */
 
