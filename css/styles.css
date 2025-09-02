@@ -2652,3 +2652,37 @@ img, video {
 [class$="cards"] > [class$="card"]:nth-of-type(5) {
     display: none !important;
 }
+
+
+/* Botão abaixo do gráfico */
+.capital-wealth-section .chart-cta-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.capital-wealth-section .chart-cta-container .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+
+
+/* Ajuste para o botão abaixo do gráfico */
+.capital-wealth-section .chart-cta-container {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.capital-wealth-section .chart-cta-container .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
