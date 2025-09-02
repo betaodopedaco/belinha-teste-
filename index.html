@@ -452,9 +452,7 @@ Aplicativo de Stacking exclusivo, identificando potenciais clientes e parceiros 
                 </svg>
             </div>
         </div>
-    </section>
-
-    <!-- ===== TERCEIRA SEÇÃO: COMO TRABALHAMOS ===== -->
+    </section>   <!-- ===== TERCEIRA SEÇÃO: COMO TRABALHAMOS ===== -->
     <section class="sessao-3" role="region" aria-labelledby="como-trabalhamos-titulo">
         <div class="lado-video">
             <video
@@ -516,7 +514,7 @@ Criamos e otimizamos sites com design de credibilidade.</p>
                         <h3>Criação de alto desempenho</h3>
                         <p>Produzimos conteúdo visual e fotos profissionais, otimizadas para ranqueamento.
 
-Integrarmos presença digital completa, với Stacking e redes sociais.</p>
+Integrarmos presença digital completa, com Stacking e redes sociais.</p>
                     </div>
                 </li>
                 <li class="pilar">
@@ -526,7 +524,11 @@ Integrarmos presença digital completa, với Stacking e redes sociais.</p>
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
-                                d="M12 15a3 3 0 1 0 0-6 3 极速下载
+                                d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                            ></path>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0    <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 极速下载
                             </path>
                         </svg>
                     </span>
@@ -651,7 +653,7 @@ Integrarmos presença digital completa, với Stacking e redes sociais.</p>
             <h2 class="section-title">Transforme seu futuro <span>com a Magnológica</span></h2>
             <p class="section-text">
                 Faça parte da nossa comunidade de inovação e excelência. Cadastre-se agora e obtenha acesso exclusivo a conteúdos, 
-                ferramentas e oportunidades que <span class="red-accent">impulsionarão seu crescimento</span> profissional and empresarial.
+                ferramentas e oportunidades que <span class="red-accent">impulsionarão seu crescimento</span> profissional e empresarial.
             </p>
             
             <div class="benefits-grid">
@@ -698,73 +700,12 @@ De acordo com o especialista <a href="https://neilpatel.com/blog/digital-marketi
                 </div>
             </div>
             
-            <button class="cta-button" id="openLeadModal2">
+            <button class="cta-button">
                 <i class="fas fa-user-plus" style="margin-right: 10px;"></i>
                 Cadastre-se Agora
             </button>
         </div>
     </section>
-
-    <!-- Modal para captura de leads -->
-    <div class="modal-overlay" id="leadModal">
-        <div class="lead-modal">
-            <button class="close-modal" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="modal-header">
-                <h2>Acesso Exclusivo</h2>
-                <p>Preencha com seus dados para acessar conteúdo privilegiado</p>
-            </div>
-            
-            <form class="lead-form" id="leadForm">
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Telefone (WhatsApp)</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <button type="submit" class="form-submit">
-                    <i class="fas fa-lock-open"></i>
-                    Liberar Acesso
-                </button>
-                
-                <div class="form-notification" id="formNotification"></div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Área administrativa (oculta) -->
-    <div class="leads-table-container" id="leadsTableContainer">
-        <h2>Leads Capturados</h2>
-        <table class="leads-table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Data</th>
-                </tr>
-            </thead>
-            <tbody id="leadsTableBody">
-                <!-- Dados serão inseridos via JavaScript -->
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Botão para mostrar/ocultar a área administrativa -->
-    <button class="admin-toggle" id="adminToggle">
-        <i class="fas fa-user-shield"></i>
-    </button>
 
     <!-- ===== SCRIPTS ===== -->
     <script>
@@ -975,143 +916,17 @@ De acordo com o especialista <a href="https://neilpatel.com/blog/digital-marketi
         
         // Efeito de clique no botão CTA
         function setupCtaButton() {
-            const ctaButtons = document.querySelectorAll('.cta-button');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 10px;"></i> Redirecionando...';
-                    setTimeout(() => {
-                        // Aqui você pode adicionar o redirecionamento real
-                        alert('Cadastro aberto! Redirecionando para o formulário...');
-                        // window.location.href = 'URL_DO_FORMULARIO';
-                    }, 1000);
-                });
+            const ctaButton = document.querySelector('.cta-button');
+            if (!ctaButton) return;
+            
+            ctaButton.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 10px;"></i> Redirecionando...';
+                setTimeout(() => {
+                    // Aqui você pode adicionar o redirecionamento real
+                    alert('Cadastro aberto! Redirecionando para o formulário...');
+                    // window.location.href = 'URL_DO_FORMULARIO';
+                }, 1000);
             });
-        }
-        
-        // Sistema de captura de leads
-        // Elementos do DOM
-        const openModalBtn1 = document.getElementById('openLeadModal1');
-        const openModalBtn2 = document.getElementById('openLeadModal2');
-        const closeModalBtn = document.getElementById('closeModal');
-        const leadModal = document.getElementById('leadModal');
-        const leadForm = document.getElementById('leadForm');
-        const notification = document.getElementById('formNotification');
-        const adminToggle = document.getElementById('adminToggle');
-        const leadsTableContainer = document.getElementById('leadsTableContainer');
-        const leadsTableBody = document.getElementById('leadsTableBody');
-
-        // Abrir modal
-        function openModal() {
-            leadModal.classList.add('active');
-        }
-
-        // Fechar modal
-        closeModalBtn.addEventListener('click', () => {
-            leadModal.classList.remove('active');
-        });
-
-        // Fechar modal clicando fora dele
-        leadModal.addEventListener('click', (e) => {
-            if (e.target === leadModal) {
-                leadModal.classList.remove('active');
-            }
-        });
-
-        // Alternar visibilidade da área administrativa
-        adminToggle.addEventListener('click', () => {
-            leadsTableContainer.style.display = 
-                leadsTableContainer.style.display === 'none' ? 'block' : 'none';
-            loadLeads();
-        });
-
-        // Simulação de banco de dados usando localStorage
-        function initializeLeadsDB() {
-            if (!localStorage.getItem('leads')) {
-                localStorage.setItem('leads', JSON.stringify([]));
-            }
-        }
-
-        // Salvar lead no "banco de dados"
-        function saveLead(lead) {
-            const leads = JSON.parse(localStorage.getItem('leads'));
-            lead.id = Date.now();
-            lead.date = new Date().toLocaleString('pt-BR');
-            leads.push(lead);
-            localStorage.setItem('leads', JSON.stringify(leads));
-            return lead.id;
-        }
-
-        // Carregar leads para a tabela
-        function loadLeads() {
-            const leads = JSON.parse(localStorage.getItem('leads'));
-            leadsTableBody.innerHTML = '';
-            
-            if (leads.length === 0) {
-                leadsTableBody.innerHTML = '<tr><td colspan="4" style="text-align: center;">Nenhum lead capturado ainda</td></tr>';
-                return;
-            }
-            
-            leads.forEach(lead => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${lead.name}</td>
-                    <td>${lead.email}</td>
-                    <td>${lead.phone}</td>
-                    <td>${lead.date}</td>
-                `;
-                leadsTableBody.appendChild(row);
-            });
-        }
-
-        // Validar e enviar formulário
-        leadForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            
-            // Validação simples
-            if (!name || !email || !phone) {
-                showNotification('Por favor, preencha todos os campos.', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showNotification('Por favor, insira um e-mail válido.', 'error');
-                return;
-            }
-            
-            // Salvar lead
-            const leadId = saveLead({ name, email, phone });
-            
-            // Feedback de sucesso
-            showNotification(`Obrigado, ${name}! Seu acesso foi liberado. Em breve entraremos em contato.`, 'success');
-            
-            // Limpar formulário
-            leadForm.reset();
-            
-            // Fechar modal após 2 segundos
-            setTimeout(() => {
-                leadModal.classList.remove('active');
-            }, 2000);
-        });
-
-        // Mostrar notificação
-        function showNotification(message, type) {
-            notification.textContent = message;
-            notification.className = 'form-notification ' + type;
-            
-            // Esconder notificação após 5 segundos
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 5000);
-        }
-
-        // Validar e-mail
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
         }
         
         // Inicializar
@@ -1165,16 +980,7 @@ De acordo com o especialista <a href="https://neilpatel.com/blog/digital-marketi
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll(); // Verificar elementos já visíveis
             setupCtaButton();
-            
-            // Inicializar o sistema de captura de leads
-            initializeLeadsDB();
-            
-            // Adicionar event listeners aos botões de abertura do modal
-            openModalBtn1.addEventListener('click', openModal);
-            openModalBtn2.addEventListener('click', openModal);
         });
     </script>
 </body>
-</html>[
-                                                                                           
-                                                                                           ]
+</html>
